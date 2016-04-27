@@ -1,0 +1,24 @@
+{
+  "name": "nodejs-pumpkin",
+  "version": "0.0.1",
+  "description": "Pumpkin is a nodejs module for solving callback hell.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tonite31/pumpkin"
+  },
+  "main": "src/pumpkin.js",
+  "dependencies": {
+  },
+  "keywords": [
+    "pumpkin",
+    "async",
+    "callback hell"
+  ],
+  "devDependencies": {},
+  "author": {
+    "name": "Alprensia",
+    "email": "tonite32@gmail.com"
+  },
+  "homepage": "",
+  "license": "SEE LICENSE IN https://github.com/tonite31/pumpkin/blob/master/LICENSE"
+}
