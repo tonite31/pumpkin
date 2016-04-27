@@ -1,7 +1,7 @@
 {
   "name": "nodejs-pumpkin",
   "version": "0.0.1",
-  "description": "Pumpkin is a nodejs module for solving callback hell.",
+  "description": "Pumpkin is a nodejs(or javascript) module for solving callback hell.",
   "repository": {
     "type": "git",
     "url": "https://github.com/tonite31/pumpkin"
