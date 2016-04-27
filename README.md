@@ -5,7 +5,7 @@ Pumpkin is a nodejs(or javascript) module for solving callback hell.
 ## Example
 ```javascript
 //If you want to use pumpkin on html, you don't have to require.
-var Pumpkin = require('../src/pumpkin');
+var Pumpkin = require('nodejs-pumpkin');
 
 var pumpkin = new Pumpkin();
 pumpkin.setData({commonData : 'commonData'});
