@@ -42,4 +42,9 @@ Pumpkin.prototype.execute = function(list, done, index, params)
 	}
 };
 
-module.exports = Pumpkin;
+try
+{
+	module.exports = Pumpkin;	
+}
+catch(err)
+{}
