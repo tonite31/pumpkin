@@ -81,6 +81,6 @@ pumpkin.execute(['work'], function()
 	console.log("done : ", this.data);
 }, function(workName, error)
 {
-	console.log(workName, error.stack);
+	console.log(workName, error);
 });
 ```
