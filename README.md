@@ -46,3 +46,41 @@ pumpkin.execute(['work1', 'work2'], function()
 	console.log("done : ", this.data);
 });
 ```
+
+## Example for handling error
+```javascript
+var Pumpkin = require('nodejs-pumpkin');
+
+var pumpkin = new Pumpkin();
+pumpkin.addWork('work', function()
+{
+	console.log(this.data.error);
+});
+
+pumpkin.execute(['work'], function()
+{
+	console.log('');
+	console.log("done : ", this.data);
+}, function(workName, error)
+{
+	console.log(workName, error.stack);
+});
+```
+```javascript
+var Pumpkin = require('nodejs-pumpkin');
+
+var pumpkin = new Pumpkin();
+pumpkin.addWork('work', function()
+{
+	this.error('error');
+});
+
+pumpkin.execute(['work'], function()
+{
+	console.log('');
+	console.log("done : ", this.data);
+}, function(workName, error)
+{
+	console.log(workName, error.stack);
+});
+```

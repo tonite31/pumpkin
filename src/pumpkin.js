@@ -14,7 +14,7 @@ Pumpkin.prototype.addWork = function(name, work)
 	this.works[name] = work;
 };
 
-Pumpkin.prototype.execute = function(list, done, index, params)
+Pumpkin.prototype.execute = function(list, done, error, index, params)
 {
 	if(list)
 	{
@@ -35,10 +35,22 @@ Pumpkin.prototype.execute = function(list, done, index, params)
 		
 		var that = this;
 		var work = this.works[list[index]];
-		work.call({data : this.data, next : function(params)
+		try
 		{
-			that.execute(list, done, index+1, params);
-		}}, params);
+			work.call({data : this.data, next : function(params)
+			{
+				that.execute(list, done, error, index+1, params);
+			}, error : function(err)
+			{
+				if(error)
+					error(list[index], err);
+			}}, params);
+		}
+		catch(err)
+		{
+			if(error)
+				error(list[index], err);
+		}
 	}
 };
 
