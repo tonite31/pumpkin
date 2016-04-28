@@ -18,25 +18,38 @@ Pumpkin.prototype.execute = function(list, done, error, index, params)
 {
 	if(list)
 	{
-		if(!index)
-			index = 0;
-		
-		if(typeof index == 'object')
-		{
-			params = index;
-			index = 0;
-		}
-		
-		if(list.length == index)
-		{
-			done.call({data : this.data}, params);
-			return;
-		}
-		
-		var that = this;
-		var work = this.works[list[index]];
 		try
 		{
+			if(!index)
+				index = 0;
+			
+			if(typeof index == 'object')
+			{
+				params = index;
+				index = 0;
+			}
+			
+			if(list.length == index)
+			{
+				done.call({data : this.data}, params);
+				return;
+			}
+			
+			var that = this;
+			var name = list[index];
+			if(typeof name == 'object')
+			{
+				params = params ? params : {};
+				for(var key in name.params)
+				{
+					params[key] = name.params[key];
+				}
+				
+				name = name.name;
+			}
+			
+			var work = this.works[name];
+		
 			work.call({data : this.data, next : function(params)
 			{
 				that.execute(list, done, error, index+1, params);
@@ -51,6 +64,10 @@ Pumpkin.prototype.execute = function(list, done, error, index, params)
 			if(error)
 				error(list[index], err);
 		}
+	}
+	else
+	{
+		console.log('pumpkin.execute - First arguments must not be null.');
 	}
 };
 

@@ -1,6 +1,6 @@
 {
   "name": "nodejs-pumpkin",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Pumpkin is a nodejs(or javascript) module for solving callback hell.",
   "repository": {
     "type": "git",

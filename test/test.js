@@ -37,4 +37,6 @@ pumpkin.execute(['work1', 'work2'], function()
 {
 	console.log('');
 	console.log("done : ", this.data);
+}, function(name, error){
+	console.log('error : ', error);
 });
