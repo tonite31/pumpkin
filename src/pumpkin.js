@@ -62,7 +62,7 @@ Pumpkin.prototype.execute = function(list, done, error, index, params)
 		catch(err)
 		{
 			if(error)
-				error(list[index], err);
+				error(name, err);
 		}
 	}
 	else
