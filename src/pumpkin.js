@@ -31,7 +31,9 @@ Pumpkin.prototype.execute = function(list, done, error, index, params)
 			
 			if(list.length == index)
 			{
-				done.call({data : this.data}, params);
+				if(done)
+					done.call({data : this.data}, params);
+				
 				return;
 			}
 			
@@ -50,14 +52,17 @@ Pumpkin.prototype.execute = function(list, done, error, index, params)
 			
 			var work = this.works[name];
 		
-			work.call({data : this.data, next : function(params)
+			if(work)
 			{
-				that.execute(list, done, error, index+1, params);
-			}, error : function(err)
-			{
-				if(error)
-					error(list[index], err);
-			}}, params);
+				work.call({data : this.data, next : function(params)
+				{
+					that.execute(list, done, error, index+1, params);
+				}, error : function(err)
+				{
+					if(error)
+						error(list[index], err);
+				}}, params);
+			}
 		}
 		catch(err)
 		{
