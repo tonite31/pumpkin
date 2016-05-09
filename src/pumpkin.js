@@ -18,6 +18,7 @@ Pumpkin.prototype.execute = function(list, done, error, index, params)
 {
 	if(list)
 	{
+		var name = '';
 		try
 		{
 			if(!index)
@@ -38,7 +39,7 @@ Pumpkin.prototype.execute = function(list, done, error, index, params)
 			}
 			
 			var that = this;
-			var name = list[index];
+			name = list[index];
 			if(typeof name == 'object')
 			{
 				params = params ? params : {};
@@ -60,7 +61,7 @@ Pumpkin.prototype.execute = function(list, done, error, index, params)
 				}, error : function(err)
 				{
 					if(error)
-						error(list[index], err);
+						error(name, err);
 				}}, params);
 			}
 		}
