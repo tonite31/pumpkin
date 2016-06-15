@@ -45,6 +45,13 @@ pumpkin.execute(['work1', 'work2'], function()
 	console.log('');
 	console.log("done : ", this.data);
 });
+
+//If you want to using async.
+pumpkin.executeAsync(['work1', 'work2'], function()
+{
+	console.log('');
+	console.log("done : ", this.data);
+});
 ```
 
 ## Error handling
